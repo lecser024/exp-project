@@ -2,12 +2,12 @@
   "name": "express-project",
   "version": "1.0.0",
   "description": "",
-  "main": "api/index.ts",
+  "main": "src/index.ts",
   "scripts": {
     "watch": "tsc -w",
-    "dev": "nodemon --inspect dist/api/index.js",
+    "dev": "nodemon --inspect dist/index.js",
     "build": "tsc",
-    "start": "node dist/api/index.js"
+    "start": "node dist/index.js"
   },
   "keywords": [],
   "author": "",

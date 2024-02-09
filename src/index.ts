@@ -1,13 +1,13 @@
 import express, { Request, Response } from "express";
 import "dotenv/config";
-import { createVideoValidation } from "../src/validations/createVideo/createVideo";
+import { createVideoValidation } from "./validations/createVideo/createVideo";
 import {
   createVideo,
   deleteVideo,
   getVideoById,
   getVideos,
-} from "../src/controllers/videoController";
-import { connectDB } from "../src/db/connect";
+} from "./controllers/videoController";
+import { connectDB } from "./db/connect";
 
 const app = express();
 const port = process.env.PORT || 5000;
