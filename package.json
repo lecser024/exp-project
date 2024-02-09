@@ -5,9 +5,9 @@
   "main": "src/index.ts",
   "scripts": {
     "watch": "tsc -w",
-    "dev": "nodemon --inspect dist/index.js",
-    "start": "nodemon src/index.ts",
-    "build": "rimraf dist && tsc"
+    "dev": "nodemon --inspect dist/api/index.js",
+    "build": "tsc",
+    "start": "node dist/api/index.js"
   },
   "keywords": [],
   "author": "",
