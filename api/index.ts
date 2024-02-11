@@ -1,8 +1,8 @@
 import express from "express";
 import "dotenv/config";
-import { deleteAllData } from "./controllers/videoController";
-import { connectDB } from "./db/connect";
-import { videoRouter } from "./routes/videoRouter/videoRouter";
+import { deleteAllData } from "../src/controllers/videoController";
+import { connectDB } from "../src/db/connect";
+import { videoRouter } from "../src/routes/videoRouter/videoRouter";
 
 const app = express();
 const port = process.env.PORT || 5000;
