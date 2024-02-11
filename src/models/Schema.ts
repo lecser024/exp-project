@@ -1,5 +1,5 @@
 import { model, Schema } from "mongoose";
-import { Video } from "../types/video";
+import { Video, VideoDocDB } from "../types/video";
 
 export enum Resolution {
   "P144",
@@ -11,8 +11,12 @@ export enum Resolution {
   "P1440",
   "P2160",
 }
+const createdAt = new Date();
+const publicationDate = new Date();
 
-export const schema = new Schema<Video>({
+publicationDate.setDate(createdAt.getDate() + 1);
+export const schema = new Schema<VideoDocDB>({
+  id: { type: Number },
   title: { type: String, required: true },
   author: { type: String, required: true },
   canBeDownloaded: {
@@ -25,11 +29,11 @@ export const schema = new Schema<Video>({
   },
   createdAt: {
     type: Date,
-    default: Date.now,
+    default: createdAt.toISOString(),
   },
   publicationDate: {
     type: Date,
-    default: Date.now,
+    default: publicationDate.toISOString(),
   },
   availableResolutions: {
     type: Array<Resolution>,
@@ -37,4 +41,4 @@ export const schema = new Schema<Video>({
   },
 });
 
-export const VideoModel = model<Video>("Video", schema);
+export const VideoModel = model<VideoDocDB>("Video", schema);

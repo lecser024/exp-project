@@ -1,27 +1,16 @@
-import express, { Request, Response } from "express";
+import express from "express";
 import "dotenv/config";
-import { createVideoValidation } from "./validations/createVideo/createVideo";
-import {
-  createVideo,
-  deleteVideo,
-  getVideoById,
-  getVideos,
-} from "./controllers/videoController";
+import { deleteAllData } from "./controllers/videoController";
 import { connectDB } from "./db/connect";
+import { videoRouter } from "./routes/videoRouter/videoRouter";
 
 const app = express();
 const port = process.env.PORT || 5000;
 
 app.use(express.json());
 
-app.get("/", (req: Request, res: Response) => {
-  res.send("Hello Samurai!");
-});
-
-app.get("api/videos/:id", getVideoById);
-app.delete("api/videos/:id", deleteVideo);
-app.get("api/videos", getVideos);
-app.post("api/videos", createVideoValidation, createVideo);
+app.delete("/testing/all-data", deleteAllData);
+app.use("/videos", videoRouter);
 
 const start = async () => {
   try {
